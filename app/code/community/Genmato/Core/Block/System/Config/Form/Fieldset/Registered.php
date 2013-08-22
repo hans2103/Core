@@ -29,7 +29,7 @@ class Genmato_Core_Block_System_Config_Form_Fieldset_Registered extends Mage_Adm
 		$email   = Mage::getStoreConfig($module . '/registration/email');
 		$serial  = Mage::getStoreConfig($module . '/registration/serial');
 
-		if (Mage::helper('genmato')->checkSerial($orderId, $email, $serial)) {
+		if (Mage::helper('genmato_core')->checkSerial($orderId, $email, $serial)) {
 			return parent::render($element);
 		}
 	}

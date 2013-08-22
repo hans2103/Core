@@ -18,7 +18,7 @@ class Genmato_Core_Model_System_Config_Backend_Registration extends Mage_Core_Mo
 			if ($response['status']) {
 				$this->setValue($response['serial']);
 			} else {
-				Mage::getSingleton('adminhtml/session')->addError(Mage::helper('genmato')->__($response['error']));
+				Mage::getSingleton('adminhtml/session')->addError(Mage::helper('genmato_core')->__($response['error']));
 			}
 		}
 
