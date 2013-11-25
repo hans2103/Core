@@ -1,1 +1,0 @@
-//Genmato registration service
