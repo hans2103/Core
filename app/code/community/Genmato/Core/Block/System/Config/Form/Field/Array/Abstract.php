@@ -7,6 +7,7 @@
 
 abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 {
+    protected $_addButton = true;
 
     /**
      * Add a column to array-grid
@@ -48,12 +49,30 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
             case "newrow":
                 $html = "</tr><tr>";
                 break;
+            case "hidden":
+                $html = '<input type="hidden" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                break;
+            case "readonly":
+                $html = '<input type="text" readonly name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                break;
             case "text":
                 $html = '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 break;
             case "file":
                 $html = '<input type="file" name="' . $inputName . '"' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : '') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 $html .= '#{' . $columnName . '}';
+                break;
+            case "multiselect":
+                $html = '<input type="hidden" value="#{' . $columnName . '}" disabled="disabled" class="is-enabled-hidden" />';
+                $html .= '<select name="' . $inputName . '[]" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'select multiselect') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . ' multiple=multiple>';
+
+                if (is_array($column['options'])) {
+                    foreach ($column['options'] as $key => $val) {
+                        $html .= '<option value="' . $key . '">' . $val . '</option>';
+                    }
+                }
+
+                $html .= "</select>";
                 break;
             case "select":
                 $html = '<input type="hidden" value="#{' . $columnName . '}" disabled="disabled" class="is-enabled-hidden" />';
