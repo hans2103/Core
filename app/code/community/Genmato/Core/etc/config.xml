@@ -1,49 +1,49 @@
 <?xml version="1.0"?>
 <config>
-	<modules>
-		<Genmato_Core>
-            <version>1.0.3</version>
+    <modules>
+        <Genmato_Core>
+            <version>1.0.5</version>
         </Genmato_Core>
-	</modules>
-	<global>
+    </modules>
+    <global>
 
-		<blocks>
-			<genmato_core>
-				<class>Genmato_Core_Block</class>
-			</genmato_core>
-		</blocks>
+        <blocks>
+            <genmato_core>
+                <class>Genmato_Core_Block</class>
+            </genmato_core>
+        </blocks>
 
-		<helpers>
-			<genmato_core>
-				<class>Genmato_Core_Helper</class>
-			</genmato_core>
-		</helpers>
+        <helpers>
+            <genmato_core>
+                <class>Genmato_Core_Helper</class>
+            </genmato_core>
+        </helpers>
 
-		<models>
-			<genmato_core>
-				<class>Genmato_Core_Model</class>
-			</genmato_core>
-		</models>
-	</global>
+        <models>
+            <genmato_core>
+                <class>Genmato_Core_Model</class>
+            </genmato_core>
+        </models>
+    </global>
 
-	<adminhtml>
-		<translate>
-			<modules>
-				<genmato_core>
-					<files>
-						<default>Genmato_Core.csv</default>
-					</files>
-				</genmato_core>
-			</modules>
-		</translate>
-		<layout>
-			<updates>
-				<genmato_core>
-					<file>genmato/core.xml</file>
-				</genmato_core>
-			</updates>
-		</layout>
-	</adminhtml>
+    <adminhtml>
+        <translate>
+            <modules>
+                <genmato_core>
+                    <files>
+                        <default>Genmato_Core.csv</default>
+                    </files>
+                </genmato_core>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <genmato_core>
+                    <file>genmato/core.xml</file>
+                </genmato_core>
+            </updates>
+        </layout>
+    </adminhtml>
     <default>
         <genmato_core>
             <extension>

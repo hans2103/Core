@@ -16,6 +16,15 @@
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
+                <genmato_core>
+                    <label>Genmato Core</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>genmato_core/system_config_form_fieldset_extensions</frontend_model>
+                    <sort_order>99999999</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </genmato_core>
                 <debug>
                     <label>Debugging</label>
                     <frontend_type>text</frontend_type>

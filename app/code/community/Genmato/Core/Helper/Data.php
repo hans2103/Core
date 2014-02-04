@@ -5,7 +5,6 @@
  * @package     Genmato_Core
  * @copyright   Copyright (c) 2013 Genmato BV (http://www.genmato.net)
  */
-
 class Genmato_Core_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
@@ -37,7 +36,7 @@ class Genmato_Core_Helper_Data extends Mage_Core_Helper_Abstract
 
         $action = Mage::app()->getFrontController()->getAction();
 
-        $action->getResponse()->setHttpResponseCode(200)->setHeader('Pragma', 'public', true)->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)->setHeader('Content-type', 'application/json', true)->setHeader('Content-Length', strlen(json_encode($content)))->setHeader('Last-Modified', date('r'));
+        $action->getResponse()->setHttpResponseCode(200)->setHeader('Pragma', 'public', true)->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)->setHeader('Content-type', 'application/json', true)->setHeader('Last-Modified', date('r'));
 
         $action->getResponse()->setBody(json_encode($content));
 
@@ -49,7 +48,7 @@ class Genmato_Core_Helper_Data extends Mage_Core_Helper_Abstract
 
         $action = Mage::app()->getFrontController()->getAction();
 
-        $action->getResponse()->setHttpResponseCode(200)->setHeader('Pragma', 'public', true)->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)->setHeader('Content-type', 'application/xml', true)->setHeader('Content-Length', strlen(json_encode($content)))->setHeader('Last-Modified', date('r'));
+        $action->getResponse()->setHttpResponseCode(200)->setHeader('Pragma', 'public', true)->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)->setHeader('Content-type', 'application/xml', true)->setHeader('Last-Modified', date('r'));
 
         $action->getResponse()->setBody($content);
 
