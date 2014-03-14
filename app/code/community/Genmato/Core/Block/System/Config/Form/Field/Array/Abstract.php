@@ -17,7 +17,17 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
      */
     public function addColumn($name, $params)
     {
-        $this->_columns[$name] = array('label' => empty($params['label']) ? 'Column' : $params['label'], 'size' => empty($params['size']) ? false : $params['size'], 'style' => empty($params['style']) ? null : $params['style'], 'class' => empty($params['class']) ? null : $params['class'], 'renderer' => false, 'type' => 'text', 'options' => false,);
+        $this->_columns[$name] = array(
+            'label' => empty($params['label']) ? 'Column' : $params['label'],
+            'title' => empty($params['title']) ? null : $params['title'],
+            'action' => empty($params['action']) ? null : $params['action'],
+            'size' => empty($params['size']) ? false : $params['size'],
+            'style' => empty($params['style']) ? null : $params['style'],
+            'class' => empty($params['class']) ? null : $params['class'],
+            'renderer' => false,
+            'type' => 'text',
+            'options' => false,
+        );
         if ((!empty($params['renderer'])) && ($params['renderer'] instanceof Mage_Core_Block_Abstract)) {
             $this->_columns[$name]['renderer'] = $params['renderer'];
         }
@@ -57,6 +67,9 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
                 break;
             case "text":
                 $html = '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                break;
+            case "button":
+                $html = '<button type="button" onclick=' . $column['action'] . '><span>' . $column['title'] . '</span></button>';
                 break;
             case "file":
                 $html = '<input type="file" name="' . $inputName . '"' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : '') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
