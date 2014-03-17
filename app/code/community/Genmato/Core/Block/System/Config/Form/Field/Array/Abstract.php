@@ -68,6 +68,10 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
             case "text":
                 $html = '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 break;
+            case "textarea":
+                $html = '<textarea name="' . $inputName . ' ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '">#{' . $columnName . '}</textarea>';
+                //$html = '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                break;
             case "button":
                 $html = '<button type="button" onclick=' . $column['action'] . '><span>' . $column['title'] . '</span></button>';
                 break;
