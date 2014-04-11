@@ -43,7 +43,15 @@ class Genmato_Core_Block_System_Config_Form_Fieldset_Extensions extends Mage_Adm
 
         $html = $this->_getFieldHtml($element, $elementId . 'module_name', 'Module naam', $moduleShortName);
         $html .= $this->_getFieldHtml($element, $elementId . 'module_version', 'Installed version', $ver);
-        $html .= $this->_getFieldHtml($element, $elementId . 'module_latest', 'Latest version', $data['version'] . ' (' . $data['released'] . ')');
+        if ($data['released'] != 'unknown') {
+            $date = ' (' . date("Y-m-d", strtotime($data['released'])) . ')';
+            $html .= $this->_getFieldHtml(
+                $element,
+                $elementId . 'module_latest',
+                'Latest version',
+                $data['version'] . $date
+            );
+        }
 
         return $html;
     }
