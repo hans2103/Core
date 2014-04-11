@@ -1,0 +1,6 @@
+app/etc/modules/Genmato_Core.xml app/etc/modules/Genmato_Core.xml
+app/code/community/Genmato/Core/ app/code/community/Genmato/Core/
+app/design/adminhtml/default/default/template/genmato/core/ app/design/adminhtml/default/default/template/genmato/core/
+skin/adminhtml/default/default/genmato/images/bad.gif skin/adminhtml/default/default/genmato/images/bad.gif
+skin/adminhtml/default/default/genmato/images/ok.gif skin/adminhtml/default/default/genmato/images/ok.gif
+skin/adminhtml/default/default/genmato/images/update.gif skin/adminhtml/default/default/genmato/images/update.gif
