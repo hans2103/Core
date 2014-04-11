@@ -3,7 +3,7 @@
 /**
  * @category    Genmato
  * @package     Genmato_Core
- * @copyright   Copyright (c) 2013 Genmato BV (http://genmato.com)
+ * @copyright   Copyright (c) 2014 Genmato BV (http://genmato.com)
  */
 abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 {
@@ -56,7 +56,6 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
         }
 
         $html = "";
-
         switch ($column['type']) {
             case "newrow":
                 $html = "</tr><tr>";
@@ -89,7 +88,6 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
                         $html .= '<option value="' . $key . '">' . $val . '</option>';
                     }
                 }
-
                 $html .= "</select>";
                 break;
             case "select":
@@ -101,11 +99,9 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
                         $html .= '<option value="' . $key . '">' . $val . '</option>';
                     }
                 }
-
                 $html .= "</select>";
                 break;
         }
-
         return $html;
     }
 
