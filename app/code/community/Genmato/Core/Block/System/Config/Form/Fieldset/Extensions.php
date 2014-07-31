@@ -15,7 +15,11 @@ class Genmato_Core_Block_System_Config_Form_Fieldset_Extensions extends Mage_Adm
 	public function render(Varien_Data_Form_Element_Abstract $element) {
 		$html    = $this->_getHeaderHtml($element);
 
-        $extension = str_replace('_Helper_Data', '', Mage::getConfig()->getHelperClassName(str_replace('genmato_core_', '', $element->getId())));
+        $extension = str_replace(
+            '_Helper_Data',
+            '',
+            Mage::getConfig()->getHelperClassName(str_replace('genmato_core_', '', $element->getId())))
+        ;
 
         $modules = array_keys((array)Mage::getConfig()->getNode('modules')->children());
 		sort($modules);

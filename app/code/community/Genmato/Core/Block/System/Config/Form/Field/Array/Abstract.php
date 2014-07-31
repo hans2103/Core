@@ -61,27 +61,51 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
                 $html = "</tr><tr>";
                 break;
             case "hidden":
-                $html = '<input type="hidden" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                $html = '<input type="hidden" name="' . $inputName .
+                    '" value="#{' . $columnName . '}" ' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 break;
             case "readonly":
-                $html = '<input type="text" readonly name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                $html = '<input type="text" readonly name="' . $inputName .
+                    '" value="#{' . $columnName . '}" ' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 break;
             case "text":
-                $html = '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                $html = '<input type="text" name="' . $inputName .
+                    '" value="#{' . $columnName . '}" ' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 break;
             case "textarea":
-                $html = '<textarea name="' . $inputName . ' ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '">#{' . $columnName . '}</textarea>';
+                $html = '<textarea name="' . $inputName . ' ' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : 'input-text') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') .
+                    '">#{' . $columnName . '}</textarea>';
                 break;
             case "button":
-                $html = '<button type="button" onclick=' . $column['action'] . '><span>' . $column['title'] . '</span></button>';
+                $html = '<button type="button" onclick=' . $column['action'] . '><span>' .
+                    $column['title'] . '</span></button>';
                 break;
             case "file":
-                $html = '<input type="file" name="' . $inputName . '"' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : '') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
+                $html = '<input type="file" name="' . $inputName . '"' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : '') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
                 $html .= '#{' . $columnName . '}';
                 break;
             case "multiselect":
-                $html = '<input type="hidden" value="#{' . $columnName . '}" disabled="disabled" class="is-enabled-hidden" />';
-                $html .= '<select name="' . $inputName . '[]" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'select multiselect') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . ' multiple=multiple>';
+                $html = '<input type="hidden" value="#{' . $columnName .
+                    '}" disabled="disabled" class="is-enabled-hidden" />';
+                $html .= '<select name="' . $inputName . '[]" value="#{' . $columnName . '}" ' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : 'select multiselect') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . ' multiple=multiple>';
 
                 if (is_array($column['options'])) {
                     foreach ($column['options'] as $key => $val) {
@@ -91,8 +115,12 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
                 $html .= "</select>";
                 break;
             case "select":
-                $html = '<input type="hidden" value="#{' . $columnName . '}" disabled="disabled" class="is-enabled-hidden" />';
-                $html .= '<select name="' . $inputName . '" value="#{' . $columnName . '}" ' . ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' . (isset($column['class']) ? $column['class'] : 'select') . '"' . (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '>';
+                $html = '<input type="hidden" value="#{' . $columnName .
+                    '}" disabled="disabled" class="is-enabled-hidden" />';
+                $html .= '<select name="' . $inputName . '" value="#{' . $columnName . '}" ' .
+                    ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
+                    ' class="' . (isset($column['class']) ? $column['class'] : 'select') . '"' .
+                    (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '>';
 
                 if (is_array($column['options'])) {
                     foreach ($column['options'] as $key => $val) {
