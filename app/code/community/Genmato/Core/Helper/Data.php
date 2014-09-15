@@ -55,4 +55,54 @@ class Genmato_Core_Helper_Data extends Mage_Core_Helper_Abstract
         return $action;
     }
 
+    public function registerExtensions(){
+        try{
+            $edition = method_exists('Mage','getEdition') ? Mage::getEdition():false;
+
+            if(!$edition) {
+                // No function getEdition found, this function is available since CE1.7
+                if (version_compare(Mage::getVersion(),'1.7','>=')) {
+                    $edition = Mage::EDITION_ENTERPRISE;
+                } else {
+                    $edition = Mage::EDITION_COMMUNITY;
+                }
+            }
+
+            $data = array();
+            $data['installation_id']	= Mage::getModel('core/encryption')->encrypt('Genmato');
+            $data['version']	        = Mage::getVersion();
+            $data['edition']        	= $edition;
+            $data['domain']     		= Mage::helper('adminhtml')->getUrl('*',array('_secure'=>1));
+            $data['extensions']         = array();
+
+            $modules 				= (array)Mage::getConfig()->getNode('modules')->children();
+            foreach ($modules as $name=>$module) {
+                if (substr($name,0,7)=='Genmato') {
+                    $data['extensions'][$name] = (string)$module->version;
+                }
+            }
+            $url = Mage::getStoreConfig('genmato_core/extension/data');
+            $push = (base64_encode(serialize($data)));
+            $this->postData($url,array('data'=>$push));
+        }catch(Exception $ex){
+            Mage::log($ex->getMessage());
+        }
+    }
+
+    public function postData($url,$data=array()){
+        $client = new Zend_Http_Client();
+        $client->setUri($url);
+        $client->setMethod('POST');
+        $client->setConfig(array(
+                'maxredirects' => 0,
+                'timeout'      => 2)
+        );
+        foreach($data as $param=>$val){
+            $client->setParameterPost($param, $val);
+        }
+        $response = $client->request();
+
+        return $response->getBody();
+    }
+
 }

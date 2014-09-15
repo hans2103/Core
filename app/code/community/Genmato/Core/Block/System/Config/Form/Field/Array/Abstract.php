@@ -97,7 +97,7 @@ abstract class Genmato_Core_Block_System_Config_Form_Field_Array_Abstract extend
                     ($column['size'] ? 'size="' . $column['size'] . '"' : '') .
                     ' class="' . (isset($column['class']) ? $column['class'] : '') . '"' .
                     (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
-                $html .= '#{' . $columnName . '}';
+                $html .= '<br>#{' . $columnName . '}';
                 break;
             case "multiselect":
                 $html = '<input type="hidden" value="#{' . $columnName .
