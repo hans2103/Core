@@ -2,11 +2,10 @@
 <config>
     <modules>
         <Genmato_Core>
-            <version>14.258.1</version>
+            <version>14.286.1</version>
         </Genmato_Core>
     </modules>
     <global>
-
         <blocks>
             <genmato_core>
                 <class>Genmato_Core_Block</class>

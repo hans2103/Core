@@ -5,7 +5,7 @@
  * @package     Genmato_Core
  * @copyright   Copyright (c) 2013 Genmato BV (http://www.genmato.net)
  */
-class Genmato_Core_Helper_Data extends Mage_Core_Helper_Abstract
+class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
 {
 
     protected $_versiondata = false;
@@ -72,7 +72,7 @@ class Genmato_Core_Helper_Data extends Mage_Core_Helper_Abstract
             $data['installation_id']	= Mage::getModel('core/encryption')->encrypt('Genmato');
             $data['version']	        = Mage::getVersion();
             $data['edition']        	= $edition;
-            $data['domain']     		= Mage::helper('adminhtml')->getUrl('*',array('_secure'=>1));
+            $data['domain']     		= $this->getUrl('*',array('_secure'=>1));
             $data['extensions']         = array();
 
             $modules 				= (array)Mage::getConfig()->getNode('modules')->children();
