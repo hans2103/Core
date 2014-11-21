@@ -72,7 +72,7 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
             $data['installation_id']	= Mage::getModel('core/encryption')->encrypt('Genmato');
             $data['version']	        = Mage::getVersion();
             $data['edition']        	= $edition;
-            $data['domain']     		= $this->getUrl('*',array('_secure'=>1));
+            $data['domain']     		= $this->getUrl('/',array('_secure'=>1));
             $data['extensions']         = array();
 
             $modules 				= (array)Mage::getConfig()->getNode('modules')->children();
