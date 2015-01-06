@@ -62,9 +62,9 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
             if(!$edition) {
                 // No function getEdition found, this function is available since CE1.7
                 if (version_compare(Mage::getVersion(),'1.7','>=')) {
-                    $edition = Mage::EDITION_ENTERPRISE;
+                    $edition = 'enterprise';
                 } else {
-                    $edition = Mage::EDITION_COMMUNITY;
+                    $edition = 'community';
                 }
             }
 
