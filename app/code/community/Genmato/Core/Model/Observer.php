@@ -15,10 +15,11 @@ class Genmato_Core_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      */
-    public function preDispatch(Varien_Event_Observer $observer) {
+    public function preDispatch(Varien_Event_Observer $observer)
+    {
         if (Mage::getSingleton('admin/session')->isLoggedIn()) {
-            if(Mage::app()->loadCache('genmato_core_updated_flag')=='UPDATED') {
-                if((time()-Mage::app()->loadCache('genmato_core_updated_time'))>$this->refresh_timeout) {
+            if (Mage::app()->loadCache('genmato_core_updated_flag')=='UPDATED') {
+                if ((time()-Mage::app()->loadCache('genmato_core_updated_time'))>$this->refresh_timeout) {
                     Mage::app()->removeCache('genmato_core_updated_flag');
                     Mage::helper('genmato_core')->registerExtensions();
                     Mage::app()->saveCache(time(), 'genmato_core_updated_time', array(), $this->refresh_timeout*2);

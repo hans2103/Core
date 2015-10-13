@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<config >
-	<acl >
-		<resources >
-			<admin >
-				<children >
-					<system >
-						<children >
-							<config >
-								<children >
-									<genmato_core >
-										<title >Genmato - Extensions and Support</title >
-									</genmato_core >
-								</children >
-							</config >
-						</children >
-					</system >
-				</children >
-			</admin >
-		</resources >
-	</acl >
-</config >
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <genmato>
+                                <children>
+                                    <logging>
+                                        <title>Genmato - Logging data</title>
+                                    </logging>
+                                </children>
+                            </genmato>
+                            <config>
+                                <children>
+                                    <genmato_core>
+                                        <title>Genmato - Extensions and Support</title>
+                                    </genmato_core>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

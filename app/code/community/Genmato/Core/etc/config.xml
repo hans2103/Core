@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Genmato_Core>
-            <version>15.53.1</version>
+            <version>15.285.1</version>
         </Genmato_Core>
     </modules>
     <global>
@@ -21,7 +21,16 @@
         <models>
             <genmato_core>
                 <class>Genmato_Core_Model</class>
+                <resourceModel>genmato_core_resource</resourceModel>
             </genmato_core>
+            <genmato_core_resource>
+                <class>Genmato_Core_Model_Resource</class>
+                <entities>
+                    <logging>
+                        <table>genmato_logging</table>
+                    </logging>
+                </entities>
+            </genmato_core_resource>
         </models>
 
         <resources>
@@ -61,7 +70,21 @@
                 </genmato_core>
             </updates>
         </layout>
+
     </adminhtml>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <genmato_core after="Mage_Adminhtml">Genmato_Core</genmato_core>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
     <default>
         <genmato_core>
             <extension>

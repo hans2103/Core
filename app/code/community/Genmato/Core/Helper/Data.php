@@ -14,10 +14,39 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
     const CACHE_TAG = 'GENMATO_CORE';
     const CACHE_TIME= 86400;
 
-    public function debug($msg, $file = 'genmato.log', $level = null, $forceLog = false)
+    const DEBUG_PATH = 'genmato_core/debug/active';
+
+    public function debug($msg, $extra = false, $level = false)
     {
-        if (Mage::getStoreConfigFlag('genmato_core/debug/active') || $forceLog) {
-            Mage::log($msg, $level, $file, $forceLog);
+        if (Mage::getStoreConfigFlag($this::DEBUG_PATH)) {
+            $source = str_replace('_Helper_Data', '', get_class($this));
+            if (!$level) {
+                $level = Zend_Log::INFO;
+            }
+
+            $logging = Mage::getModel('genmato_core/logging');
+            $logging->setSource($source)
+                ->setCreatedate(now())
+                ->setLevel($level);
+
+            if (is_array($msg) || is_object($msg)) {
+                $logging->setMessage(var_export($msg, true));
+            } else {
+                $logging->setMessage($msg);
+            }
+            if ($extra) {
+                if (is_array($extra) || is_object($extra)) {
+                    $logging->setExtra(var_export($extra, true));
+                } else {
+                    $logging->setExtra($extra);
+                }
+            }
+
+            try {
+                $logging->save();
+            } catch (Exception $ex) {
+                Mage::log($ex->getMessage());
+            }
         }
     }
 
