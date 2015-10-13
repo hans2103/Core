@@ -51,6 +51,14 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
                 'index' => 'source',
             )
         );
+        $this->addColumn(
+            'reference',
+            array(
+                'header' => Mage::helper('genmato_core')->__('Reference'),
+                'width' => '250px',
+                'index' => 'reference',
+            )
+        );
 
         $this->addColumn(
             'message',
@@ -64,7 +72,7 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
             'extra',
             array(
                 'header' => Mage::helper('genmato_core')->__('Extra'),
-                'width' => '250px',
+
                 'index' => 'extra',
             )
         );

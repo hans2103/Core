@@ -16,7 +16,7 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
 
     const DEBUG_PATH = 'genmato_core/debug/active';
 
-    public function debug($msg, $extra = false, $level = false)
+    public function debug($msg, $reference = false, $extra = false, $level = false)
     {
         if (Mage::getStoreConfigFlag($this::DEBUG_PATH)) {
             $source = str_replace('_Helper_Data', '', get_class($this));
@@ -40,6 +40,9 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
                 } else {
                     $logging->setExtra($extra);
                 }
+            }
+            if ($reference) {
+                $logging->setReference($reference);
             }
 
             try {

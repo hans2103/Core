@@ -23,7 +23,8 @@ $table = $installer->getConnection()
     ->addColumn('source', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(), 'Source')
     ->addColumn('level', Varien_Db_Ddl_Table::TYPE_SMALLINT, null, array(), 'Level')
     ->addColumn('message', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(), 'Message')
-    ->addColumn('extra', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(), 'Extra details');
+    ->addColumn('extra', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(), 'Extra details')
+    ->addColumn('reference', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(), 'Reference');
 
 $installer->getConnection()->createTable($table);
 
