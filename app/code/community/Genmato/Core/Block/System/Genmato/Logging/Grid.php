@@ -40,6 +40,8 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
             array(
                 'header' => Mage::helper('genmato_core')->__('Level'),
                 'width' => '100px',
+                'type' => 'options',
+                'options' => Mage::getSingleton('genmato_core/system_config_source_debug_level')->toOptionHash(),
                 'index' => 'level',
             )
         );
@@ -65,6 +67,7 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
             array(
                 'header' => Mage::helper('genmato_core')->__('Message'),
                 'index' => 'message',
+                'renderer' => 'Genmato_Core_Block_System_Genmato_Logging_Renderer',
             )
         );
 
@@ -72,8 +75,8 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
             'extra',
             array(
                 'header' => Mage::helper('genmato_core')->__('Extra'),
-
                 'index' => 'extra',
+                'renderer' => 'Genmato_Core_Block_System_Genmato_Logging_Renderer',
             )
         );
 
