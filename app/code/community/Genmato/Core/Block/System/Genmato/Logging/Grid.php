@@ -39,7 +39,7 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
             'level',
             array(
                 'header' => Mage::helper('genmato_core')->__('Level'),
-                'width' => '150px',
+                'width' => '100px',
                 'index' => 'level',
             )
         );
@@ -55,7 +55,7 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
             'reference',
             array(
                 'header' => Mage::helper('genmato_core')->__('Reference'),
-                'width' => '250px',
+                'width' => '100px',
                 'index' => 'reference',
             )
         );
