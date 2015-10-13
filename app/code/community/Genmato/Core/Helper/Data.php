@@ -30,13 +30,13 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
                 ->setLevel($level);
 
             if (is_array($msg) || is_object($msg)) {
-                $logging->setMessage(var_export($msg, true));
+                $logging->setMessage('<pre>'.var_export($msg, true).'</pre>');
             } else {
                 $logging->setMessage($msg);
             }
             if ($extra) {
                 if (is_array($extra) || is_object($extra)) {
-                    $logging->setExtra(var_export($extra, true));
+                    $logging->setExtra('<pre>'.var_export($extra, true).'</pre>');
                 } else {
                     $logging->setExtra($extra);
                 }
