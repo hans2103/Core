@@ -19,7 +19,8 @@ class Genmato_Core_Helper_Data extends Mage_Adminhtml_Helper_Data
     public function debug($msg, $reference = false, $extra = false, $level = false)
     {
         if (Mage::getStoreConfigFlag($this::DEBUG_PATH)) {
-            $source = str_replace('_Helper_Data', '', get_class($this));
+            $source = explode('_', get_class($this));
+            $source = $source[1];
             if (!$level) {
                 $level = Zend_Log::INFO;
             }

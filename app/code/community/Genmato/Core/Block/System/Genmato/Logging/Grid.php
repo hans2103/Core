@@ -27,6 +27,15 @@ class Genmato_Core_Block_System_Genmato_Logging_Grid extends Mage_Adminhtml_Bloc
     {
 
         $this->addColumn(
+            'entity_id',
+            array(
+                'header' => Mage::helper('genmato_core')->__('Id'),
+                'width' => '80px',
+                'index' => 'entity_id',
+            )
+        );
+
+        $this->addColumn(
             'createdate',
             array(
                 'header' => Mage::helper('genmato_core')->__('Date'),
