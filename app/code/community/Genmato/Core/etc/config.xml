@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Genmato_Core>
-            <version>15.298.1</version>
+            <version>16.248.1</version>
         </Genmato_Core>
     </modules>
     <global>
@@ -85,12 +85,24 @@
         </routers>
     </admin>
 
+    <crontab>
+        <jobs>
+            <genmato_core_logging_cleanup>
+                <schedule><cron_expr>0 6 * * *</cron_expr></schedule>
+                <run><model>genmato_core/cron_logging::run</model></run>
+            </genmato_core_logging_cleanup>
+        </jobs>
+    </crontab>
+
     <default>
         <genmato_core>
             <extension>
                 <url>https://genmato.com/extensions.xml</url>
                 <data>https://genmato.com/extension/data/</data>
             </extension>
+            <logging>
+                <clean_period>30</clean_period>
+            </logging>
         </genmato_core>
     </default>
 </config>
