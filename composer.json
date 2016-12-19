@@ -1,0 +1,16 @@
+{
+  "name": "genmato/core",
+  "type": "magento-module",
+  "description": "Genmato Core module used as base module for other Genmato extension for Magento 1.x",
+  "homepage":"https://github.com/Genmato/Core",
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "name":"Genmato BV",
+      "email": "support@genmato.com"
+    }
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0"
+  }
+}
